@@ -1,0 +1,22 @@
+{
+  "name": "nextjs",
+  "version": "4.0.0",
+  "private": true,
+"scripts": {
+    "dev": "next  -p 3300",
+    "build": "next build",
+    "start": "next start -p 3300"
+  },
+  "dependencies": {
+    "@material-ui/core": "latest",
+    "@material-ui/styles": "latest",
+    "clsx": "latest",
+    "next": "latest",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.1"
+  }
+}
