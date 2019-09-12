@@ -148,7 +148,7 @@ function handleSubmit(event) {
 					</Typography>
 					<br />
 					<br />
-					<form className={classes.form} onSubmit={handleSubmit} action="admin" autoComplete="on" method="POST">
+					<form className={classes.form} onSubmit={handleSubmit} autoComplete="on" method="POST">
 						<TextField
 							variant="outlined"
 							margin="normal"
