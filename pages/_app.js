@@ -20,7 +20,7 @@ class MyApp extends App {
     return (
 	<Fragment>
         <Head>
-          <title>My page</title>
+          <title>Portal</title>
         </Head>
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
