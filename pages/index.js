@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
 		border: '0px solid lime',
 	},
 	image: {
-		backgroundImage: 'url(../static/capa-de-login-portal.jpg)',
+		backgroundImage: 'url(../static/background-login.jpg)',
 		backgroundRepeat: 'no-repeat',
 		backgroundSize: 'cover',
 		backgroundPosition: 'center',
@@ -119,6 +119,10 @@ export default function SignInSide() {
 	const handleMouseDownPassword = event => {
 		event.preventDefault();
 	};
+	
+function handleSubmit(event) {
+    window.location.href="/admin"
+  }
 
 	return (
 		<Grid container component="main" className={classes.root}>
@@ -144,7 +148,7 @@ export default function SignInSide() {
 					</Typography>
 					<br />
 					<br />
-					<form className={classes.form} action="admin" autoComplete="on" method="POST">
+					<form className={classes.form} onSubmit={handleSubmit} action="admin" autoComplete="on" method="POST">
 						<TextField
 							variant="outlined"
 							margin="normal"
