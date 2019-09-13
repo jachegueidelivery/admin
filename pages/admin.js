@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box';
 import MuiLink from '@material-ui/core/Link';
 import ProTip from '../src/ProTip';
 import Link from '../src/Link';
+import Admin from '../src/layouts/Admin';
 
 function Copyright() {
   return (
@@ -24,15 +25,6 @@ function Copyright() {
 
 export default function About() {
   return (
-    <Container maxWidth="sm">
-      <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Next.js example
-        </Typography>
-        <Link href="/">Go to the main page</Link>
-        <ProTip />
-        <Copyright />
-      </Box>
-    </Container>
+    <Admin />
   );
 }
