@@ -84,7 +84,7 @@ function EnhancedTableHead(props) {
         {headCells.map(headCell => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? 'right' : 'left'}
+            align={'left'}
             padding={headCell.disablePadding ? 'none' : 'default'}
             sortDirection={orderBy === headCell.id ? order : false}
           >
@@ -324,11 +324,11 @@ export default function EnhancedTable() {
                         />
                       </TableCell>
                       <TableCell component="th" id={labelId} scope="row" padding="none">
-                        {row.name}
+                        R$ {row.amount}
                       </TableCell>
-                      <TableCell align="right">{row.name}</TableCell>
-                      <TableCell align="right">{row.fat}</TableCell>
-                      <TableCell align="right">{row.carbs}</TableCell>
+                      <TableCell align="left">{row.description}</TableCell>
+                      <TableCell align="left">{row.prince.toFixed(2)}</TableCell>
+                      <TableCell align="left">R$ {(row.prince * row.amount).toFixed(2)}</TableCell>
                     </TableRow>
                   );
                 })}

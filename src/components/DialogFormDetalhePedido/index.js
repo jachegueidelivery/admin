@@ -60,7 +60,7 @@ const DialogContent = withStyles(theme => ({
     [theme.breakpoints.up('md')]: {
 			height:600,
 	maxHeight:600,
-		width:768
+		width:868
     },
     [theme.breakpoints.up('lg')]: {
     },
