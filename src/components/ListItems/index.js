@@ -12,6 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import Skeleton from '@material-ui/lab/Skeleton';
+import DialogFormDetalhePedido from '../DialogFormDetalhePedido';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,7 +30,9 @@ export default function AlignItemsList() {
   const classes = useStyles();
 
   return (
-    <List className={classes.root}>
+    <>
+	<DialogFormDetalhePedido />
+	<List className={classes.root}>
       <Divider variant="middle" component="li" />
       <ListItem alignItems="flex-start">
         <ListItemText
@@ -54,6 +57,6 @@ export default function AlignItemsList() {
                     </IconButton>
                   </ListItemSecondaryAction>
       </ListItem>
-    </List>
+    </List></>
   );
 }
