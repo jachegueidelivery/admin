@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+﻿import React, { useEffect } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -78,7 +78,8 @@ const DialogActions = withStyles(theme => ({
 }))(MuiDialogActions);
 
 export default function DialogDetalhe(props) {
-  const [open, setOpen] = React.useState(false);
+
+  const { onClose, selectedValue, open } = props;
 
   const classes = useStyles();
 
@@ -86,13 +87,9 @@ export default function DialogDetalhe(props) {
     setOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  useEffect(() => {
-
-  }, []);
+  function handleClose() {
+    onClose(selectedValue);
+  }
 
   const theme = useTheme();
 
@@ -103,7 +100,7 @@ export default function DialogDetalhe(props) {
       {/*<Button variant="outlined" color="secondary" >
         Open dialog
   </Button>*/}
-      <Dialog onClose={handleClose} maxWidth="xl" open={props.teste}>
+      <Dialog onClose={handleClose} maxWidth="xl" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           NOVO PEDIDO: #4565
         </DialogTitle>

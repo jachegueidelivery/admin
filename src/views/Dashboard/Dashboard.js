@@ -187,7 +187,7 @@ export default function Dashboard() {
 							<Paper className={fixedHeightPaper} style={{ padding: 0 }}>
 								<BarraNavegacao title="PEDIDOS NOVOS" backColor="#999"></BarraNavegacao>
 								<div style={{ padding: 20, maxHeight: '100%' }}>
-									{[...Array(1).keys()].map((item, index) => {
+									{Array.from({ length: 10 }, index => index).map((item, index) => {
 										return <ItensPedido key={index} />;
 									})}
 								</div>
@@ -197,7 +197,7 @@ export default function Dashboard() {
 							<Paper className={fixedHeightPaper} style={{ padding: 0 }}>
 								<BarraNavegacao title="ENTREGUE" backColor="#f1c232" />
 								<div style={{ padding: 20, maxHeight: '100%' }}>
-								{[...Array(1).keys()].map((item, index) => {
+								{Array.from({ length: 10 }, index => index).map((item, index) => {
 										return <ItensPedido key={index} />;
 									})}
 								</div>
@@ -207,7 +207,7 @@ export default function Dashboard() {
 							<Paper className={fixedHeightPaper} style={{ padding: 0 }}>
 								<BarraNavegacao title="EM ANDAMENTO" backColor="#6aa84f"></BarraNavegacao>
 								<div style={{ padding: 20, maxHeight: '100%' }}>
-								{[...Array(1).keys()].map((item, index) => {
+								{Array.from({ length: 10 }, index => index).map((item, index) => {
 										return <ItensPedido key={index} />;
 									})}
 								</div>
@@ -217,7 +217,7 @@ export default function Dashboard() {
 							<Paper className={fixedHeightPaper} style={{ padding: 0 }}>
 								<BarraNavegacao title="CANCELADO" backColor="#990000"></BarraNavegacao>
 								<div style={{ padding: 20, maxHeight: '100%' }}>
-								{[...Array(1).keys()].map((item, index) => {
+								{Array.from({ length: 10 }, index => index).map((item, index) => {
 										return <ItensPedido key={index} />;
 									})}
 								</div>

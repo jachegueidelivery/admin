@@ -10,7 +10,6 @@ import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Visibility from "@material-ui/icons/Visibility";
@@ -44,27 +43,47 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: "cover",
     backgroundPosition: "center"
   },
-painelDireito:{
-height: "100% !important",
-    overflow:"auto !important",
-},
+  painelDireito: {
+    height: "100% !important",
+    overflow: "auto !important",
+    [theme.breakpoints.up("sm")]: {
+      alignItems: 'center',
+      display: 'flex',
+      justifyContent: 'center',
+    },
+    [theme.breakpoints.up("md")]: {
+      // alignItems: 'center',
+      //display: 'flex',
+      // justifyContent: 'center',
+      padding: theme.spacing(10, 0, 0, 0),
+      border:"0px solid lime"
+    },
+    [theme.breakpoints.up("lg")]: {
+      alignItems: 'center',
+      display: 'flex',
+      justifyContent: 'center',
+    },
+  },
   paper: {
-      border: "0px solid red",
+    flexDirection: "column",
     [theme.breakpoints.up("xs")]: {
       margin: theme.spacing(2),
-      padding: theme.spacing(0),
+      padding: theme.spacing(0)
     },
     [theme.breakpoints.up("sm")]: {
-      margin: theme.spacing(2),
-      padding: theme.spacing(0, 2)
+      margin: theme.spacing(0),
+      padding: theme.spacing(0),
+      border:"1px solid blue"
     },
-    [theme.breakpoints.up("md")]: {},
+    [theme.breakpoints.up("md")]: {
+      border:"1px solid blue"
+    },
     [theme.breakpoints.up("lg")]: {
-      margin: theme.spacing(2, 2),
-      padding: theme.spacing(0, 12, 0, 12)
+      margin: theme.spacing(0),
+      padding: theme.spacing(0, 0, 0, 0),
+      border:"0px solid red",
+      width:'70%'
     },
-    display: "flex",
-    flexDirection: "column"
   },
   portalDoServidor: {
     [theme.breakpoints.up("xs")]: {
@@ -73,7 +92,7 @@ height: "100% !important",
     [theme.breakpoints.up("sm")]: {
       textAlign: "left"
     },
-fontSize:"32px"
+    fontSize: "32px"
   },
   subTitulo: {
     [theme.breakpoints.up("xs")]: {
@@ -82,7 +101,7 @@ fontSize:"32px"
     [theme.breakpoints.up("sm")]: {
       textAlign: "left"
     },
-fontSize:"18px"
+    fontSize: "18px"
   },
   login: {
     display: "flex",
@@ -115,10 +134,6 @@ export default function SignInSide() {
     weightRange: "",
     showPassword: false
   });
-/*
-  useEffect(() => {
-    document.title = values.email;
-  }, [values.email]);*/
 
   const handleChange = prop => event => {
     setValues({ ...values, [prop]: event.target.value });
@@ -133,20 +148,27 @@ export default function SignInSide() {
   };
 
   function handleSubmit(ev) {
-   if(values.email.trim().length == 0 || values.password == ""){
-	alert("Usuário ou senha incorretos.");
-}
-else{
-    window.location.href = "/admin";
-}
+    if (values.email.trim().length == 0 || values.password == "") {
+      alert("Usuário ou senha incorretos.");
+    } else {
+      window.location.href = "/admin";
+    }
     event.preventDefault();
   }
 
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={6} className={classes.image} />
-      <Grid item xs={12} sm={8} md={6} component={Paper}  className={classes.painelDireito} >
+      <Grid item xs={false} sm={4} md={6} lg={6} className={classes.image} />
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        md={6}
+        lg={6}
+        component={Paper}
+        className={classes.painelDireito}
+      >
         <div className={classes.paper}>
           <Grid className={classes.login}>
             {/*<Avatar className={classes.avatar}>
@@ -163,10 +185,7 @@ else{
             <strong>Portal do Parceiro</strong>
           </Typography>
           <br />
-          <Typography
-            variant="subtitle1"
-            className={classes.subTitulo}
-          >
+          <Typography variant="subtitle1" className={classes.subTitulo}>
             Gerencie seu estabelecimento de forma fácil e rápida
           </Typography>
           <br />
@@ -217,7 +236,6 @@ else{
                 )
               }}
             />
-
             <Grid container>
               <Grid container item md={6}>
                 <FormControlLabel
@@ -250,12 +268,13 @@ else{
             <br /> <br />
             <Grid container>
               <Grid item container alignItems="center" justify="center">
-                Ainda não possui cadastro?&#160;&#160;
+                <Typography variant="h6">Ainda não possui cadastro?</Typography>&#160;&#160;
                 <Link href="#" variant="h6" underline="always">
                   {"Cadastre-se aqui"}
                 </Link>
               </Grid>
-            </Grid> <br />
+            </Grid>{" "}
+            <br />
             {/*<Box mt={5}>
               <Copyright />
             </Box>*/}

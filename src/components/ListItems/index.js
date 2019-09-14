@@ -28,17 +28,24 @@ export default function Itemlist() {
   const classes = useStyles();
   
   const [value, setValue] = useState("");
-  
+  const [open, setOpen] = useState(false);
+
+ function handleClickOpen() {
+    setOpen(true);
+  }
+
+  const handleClose = value => {
+    setOpen(false);
+  };
+
   return (
     <>
 
-      <DialogFormDetalhePedido onclick={(ev)=>value} teste={value}/>
+      <DialogFormDetalhePedido onClose={handleClose} open={open} />
 
       <List
         className={classes.root}
-        onClick={() => {
-          setValue(Math.random())
-        }}
+        onClick={handleClickOpen}
       >
         <Divider variant="middle" component="li" />
         <ListItem alignItems="flex-start">
