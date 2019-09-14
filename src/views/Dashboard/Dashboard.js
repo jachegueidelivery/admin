@@ -15,7 +15,7 @@ import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { mainListItems, secondaryListItems } from './listItems';
+import { mainListItems, secondaryListItems } from './ListItems';
 import ItensPedido from '../../components/ListItems';
 import BarraNavegacao from './BarraNavegacao';
 
@@ -123,6 +123,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Dashboard() {
+	
 	const classes = useStyles();
 
 	const [open, setOpen] = React.useState(false);
@@ -158,7 +159,6 @@ export default function Dashboard() {
 							Sair
 						</Link>
 					</Typography>
-					{/* <Typography><Link>Sair</Link></Typography> */}
 				</Toolbar>
 			</AppBar>
 			<Drawer
@@ -187,7 +187,7 @@ export default function Dashboard() {
 							<Paper className={fixedHeightPaper} style={{ padding: 0 }}>
 								<BarraNavegacao title="PEDIDOS NOVOS" backColor="#999"></BarraNavegacao>
 								<div style={{ padding: 20, maxHeight: '100%' }}>
-									{[...Array(10).keys()].map((item, index) => {
+									{[...Array(1).keys()].map((item, index) => {
 										return <ItensPedido key={index} />;
 									})}
 								</div>
@@ -197,7 +197,7 @@ export default function Dashboard() {
 							<Paper className={fixedHeightPaper} style={{ padding: 0 }}>
 								<BarraNavegacao title="ENTREGUE" backColor="#f1c232" />
 								<div style={{ padding: 20, maxHeight: '100%' }}>
-								{[...Array(10).keys()].map((item, index) => {
+								{[...Array(1).keys()].map((item, index) => {
 										return <ItensPedido key={index} />;
 									})}
 								</div>
@@ -207,7 +207,7 @@ export default function Dashboard() {
 							<Paper className={fixedHeightPaper} style={{ padding: 0 }}>
 								<BarraNavegacao title="EM ANDAMENTO" backColor="#6aa84f"></BarraNavegacao>
 								<div style={{ padding: 20, maxHeight: '100%' }}>
-								{[...Array(10).keys()].map((item, index) => {
+								{[...Array(1).keys()].map((item, index) => {
 										return <ItensPedido key={index} />;
 									})}
 								</div>
@@ -217,7 +217,7 @@ export default function Dashboard() {
 							<Paper className={fixedHeightPaper} style={{ padding: 0 }}>
 								<BarraNavegacao title="CANCELADO" backColor="#990000"></BarraNavegacao>
 								<div style={{ padding: 20, maxHeight: '100%' }}>
-								{[...Array(10).keys()].map((item, index) => {
+								{[...Array(1).keys()].map((item, index) => {
 										return <ItensPedido key={index} />;
 									})}
 								</div>

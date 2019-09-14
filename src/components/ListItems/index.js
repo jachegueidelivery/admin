@@ -8,14 +8,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
 import Skeleton from "@material-ui/lab/Skeleton";
-import React from "react";
+import React, { useState } from "react";
 import DialogFormDetalhePedido from "../DialogFormDetalhePedido";
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100%",
     maxWidth: "100%",
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: theme.palette.background.paper,
+    border: "0px solid red",
+    padding: 0
   },
   inline: {
     display: "inline"
@@ -23,13 +25,21 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Itemlist() {
-
   const classes = useStyles();
-
+  
+  const [value, setValue] = useState("");
+  
   return (
     <>
-      <DialogFormDetalhePedido />
-      <List className={classes.root}>
+
+      <DialogFormDetalhePedido onclick={(ev)=>value} teste={value}/>
+
+      <List
+        className={classes.root}
+        onClick={() => {
+          setValue(Math.random())
+        }}
+      >
         <Divider variant="middle" component="li" />
         <ListItem alignItems="flex-start">
           <ListItemText
