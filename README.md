@@ -2,8 +2,8 @@
 
 ## Como usar?
 
-Download the example [or clone the repo](https://github.com/jachegueidelivery/admin.git):
-
+Clone o repositório [or clone the repo](https://github.com/jachegueidelivery/admin.git):
+```git clone https://github.com/jachegueidelivery/admin.git```
 
 Install it and run:
 
