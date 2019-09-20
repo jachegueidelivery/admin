@@ -14,12 +14,17 @@ import Typography from "@material-ui/core/Typography";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import MenuIcon from "@material-ui/icons/Menu";
 import clsx from "clsx";
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import ItensPedido from "../../components/ListItems";
 import BarraNavegacao from "./BarraNavegacao";
 import { mainListItems, secondaryListItems } from "./ListItems";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
+import {loadLists} from "../../services/api";
+import produce from "immer"
+
+const data = loadLists();
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -150,6 +155,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Dashboard() {
+
+  const [lists, setLists] = useState(data);
+
   const classes = useStyles();
 
   const [open, setOpen] = useState(false);
@@ -165,6 +173,10 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  useEffect(()=>{
+ console.log(lists);
+});
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -234,14 +246,14 @@ export default function Dashboard() {
           </Grid>
           <br />
           <br />
-          <Grid container spacing={4} style={{ padding: 4 }}>
+          <Grid container spacing={2} style={{ padding: 0 }}>
             <Grid
               item
               xs={12}
               sm={6}
               md={3}
               lg={3}
-              style={{ padding: 0, margin: 0 }}
+              style={{ margin: 0 }}
             >
               <Paper className={fixedHeightPaper} style={{ padding: 0 }}>
                 <BarraNavegacao title="PEDIDOS NOVOS" backColor="#999" />
@@ -250,7 +262,11 @@ export default function Dashboard() {
                   onChange={ev => setNovoPedido(ev)}
                   placeholder="Pesquisar em novos pedidos"
                 />
-                {emNovoPedido}
+                 <div style={{ paddingLeft: 20,paddingRight: 20, maxHeight: "100%" }}>
+{emNovoPedido}
+                   </div>
+                
+                
                 <div style={{ padding: 20, maxHeight: "100%" }}>
                   {Array.from({ length: 10 }, index => index).map(
                     (item, index) => {
@@ -266,7 +282,7 @@ export default function Dashboard() {
               sm={6}
               md={3}
               lg={3}
-              style={{ padding: 0, margin: 0 }}
+              style={{  margin: 0 }}
             >
               <Paper className={fixedHeightPaper} style={{ padding: 0 }}>
                 <BarraNavegacao title="ENTREGUE" backColor="#f1c232" />
@@ -291,7 +307,7 @@ export default function Dashboard() {
               sm={6}
               md={3}
               lg={3}
-              style={{ padding: 0, margin: 0 }}
+              style={{ margin: 0 }}
             >
               <Paper className={fixedHeightPaper} style={{ padding: 0 }}>
                 <BarraNavegacao title="EM ANDAMENTO" backColor="#6aa84f" />
@@ -309,14 +325,14 @@ export default function Dashboard() {
                   )}
                 </div>
               </Paper>
-            </Grid>{" "}
+            </Grid>
             <Grid
               item
               xs={12}
               sm={6}
               md={3}
               lg={3}
-              style={{ padding: 0, margin: 0 }}
+              style={{  margin: 0 }}
             >
               <Paper className={fixedHeightPaper} style={{ padding: 0 }}>
                 <BarraNavegacao title="CANCELADO" backColor="#990000" />
