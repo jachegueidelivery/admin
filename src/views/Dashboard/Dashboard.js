@@ -14,14 +14,14 @@ import Typography from "@material-ui/core/Typography";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import MenuIcon from "@material-ui/icons/Menu";
 import clsx from "clsx";
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import ItensPedido from "../../components/ListItems";
 import BarraNavegacao from "./BarraNavegacao";
 import { mainListItems, secondaryListItems } from "./ListItems";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
-import {loadLists} from "../../services/api";
-import produce from "immer"
+import { loadLists } from "../../services/api";
+import produce from "immer";
 
 const data = loadLists();
 
@@ -138,8 +138,9 @@ const useStyles = makeStyles(theme => ({
     overflow: "auto",
     flexDirection: "column",
     margin: 0,
-    borderBottom:"0 !important",
-    boxShadow:"0 !important"
+    borderBottom: "0 !important",
+    boxShadow: "0 !important",
+    border: "0 !important"
   },
   fixedHeight: {
     [theme.breakpoints.up("xs")]: {
@@ -155,7 +156,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Dashboard() {
-
   const [lists, setLists] = useState(data);
 
   const classes = useStyles();
@@ -174,9 +174,9 @@ export default function Dashboard() {
     setOpen(false);
   };
 
-  useEffect(()=>{
- console.log(lists);
-});
+  useEffect(() => {
+    console.log(lists);
+  });
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -247,44 +247,35 @@ export default function Dashboard() {
           <br />
           <br />
           <Grid container spacing={2} style={{ padding: 0 }}>
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={3}
-              lg={3}
-              style={{ margin: 0 }}
-            >
-              <Paper className={fixedHeightPaper} style={{ padding: 0 }}>
+            <Grid item xs={12} sm={6} md={6} lg={3} style={{ margin: 0 }}>
+              <div style={{ padding: 0 }}>
                 <BarraNavegacao title="PEDIDOS NOVOS" backColor="#999" />
                 <Search
                   classes={classes}
                   onChange={ev => setNovoPedido(ev)}
                   placeholder="Pesquisar em novos pedidos"
                 />
-                 <div style={{ paddingLeft: 20,paddingRight: 20, maxHeight: "100%" }}>
-{emNovoPedido}
-                   </div>
-                
-                
-                <div style={{ padding: 20, maxHeight: "100%" }}>
+                <div
+                  style={{
+                    paddingLeft: 20,
+                    paddingRight: 20,
+                    maxHeight: "100%"
+                  }}
+                >
+                  {emNovoPedido}
+                </div>
+
+                <div  className={fixedHeightPaper} style={{ padding: 20, maxHeight: "100%" }}>
                   {Array.from({ length: 10 }, index => index).map(
                     (item, index) => {
                       return <ItensPedido key={index} />;
                     }
                   )}
                 </div>
-              </Paper>
+              </div>
             </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={3}
-              lg={3}
-              style={{  margin: 0 }}
-            >
-              <Paper className={fixedHeightPaper} style={{ padding: 0 }}>
+            <Grid item xs={12} sm={6} md={6} lg={3} style={{ margin: 0 }}>
+              <div style={{ padding: 0 }}>
                 <BarraNavegacao title="ENTREGUE" backColor="#f1c232" />
                 <Search
                   classes={classes}
@@ -292,24 +283,17 @@ export default function Dashboard() {
                   placeholder="Pesquisar em pedidos entregues"
                 />
                 {emEntregue}
-                <div style={{ padding: 20, maxHeight: "100%" }}>
+                <div className={fixedHeightPaper} style={{ padding: 20, maxHeight: "100%" }}>
                   {Array.from({ length: 10 }, index => index).map(
                     (item, index) => {
                       return <ItensPedido key={index} />;
                     }
                   )}
                 </div>
-              </Paper>
+              </div>
             </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={3}
-              lg={3}
-              style={{ margin: 0 }}
-            >
-              <Paper className={fixedHeightPaper} style={{ padding: 0 }}>
+            <Grid item xs={12} sm={6} md={6} lg={3} style={{ margin: 0 }}>
+              <div style={{ padding: 0 }}>
                 <BarraNavegacao title="EM ANDAMENTO" backColor="#6aa84f" />
                 <Search
                   classes={classes}
@@ -317,24 +301,17 @@ export default function Dashboard() {
                   placeholder="Pesquisar em pedidos em andamento"
                 />
                 {emAndamento}
-                <div style={{ padding: 20, maxHeight: "100%" }}>
-                  {Array.from({ length: 10 }, index => index).map(
+                <div className={fixedHeightPaper} style={{ padding: 20, maxHeight: "100%" }}>
+                   {Array.from({ length: 10 }, index => index).map(
                     (item, index) => {
                       return <ItensPedido key={index} />;
                     }
                   )}
                 </div>
-              </Paper>
+              </div>
             </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={3}
-              lg={3}
-              style={{  margin: 0 }}
-            >
-              <Paper className={fixedHeightPaper} style={{ padding: 0 }}>
+            <Grid item xs={12} sm={6} md={6} lg={3} style={{ margin: 0 }}>
+              <div style={{ padding: 0 }}>
                 <BarraNavegacao title="CANCELADO" backColor="#990000" />
                 <Search
                   classes={classes}
@@ -342,14 +319,14 @@ export default function Dashboard() {
                   placeholder="Pesquisar em pedidos cancelados"
                 />
                 {emCancelado}
-                <div style={{ padding: 20, maxHeight: "100%" }}>
+                <div  className={fixedHeightPaper} style={{ padding: 20, maxHeight: "100%" }}>
                   {Array.from({ length: 10 }, index => index).map(
                     (item, index) => {
                       return <ItensPedido key={index} />;
                     }
                   )}
                 </div>
-              </Paper>
+              </div>
             </Grid>
           </Grid>
         </Container>
