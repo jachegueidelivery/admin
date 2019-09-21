@@ -3,8 +3,10 @@
 # dependencies
 /node_modules
 
-# misc
+# package-lock.json
 package-lock.json
 
 # Next.js
 /.next
+
+
