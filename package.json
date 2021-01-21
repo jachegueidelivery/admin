@@ -13,7 +13,7 @@
     "@material-ui/lab": "^4.0.0-alpha.26",
     "@material-ui/styles": "latest",
     "clsx": "latest",
-    "immer": "^4.0.0",
+    "immer": "^8.0.1",
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
